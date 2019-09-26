@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    #canvas{
+      border: 1px solid #000;
+      display: inline-block;
+    }
+    #tools{
+      display: inline-block;
+    }
+    .canvas-container{
+      position: relative;
+      width: 600px;
+      height: 300px;
+      margin: 0 auto;
+    }
+    #temp_canvas{
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  </style>
+</head>
+<body style='text-align: center;'>
+  <div class='canvas-container'>
+    <canvas id='canvas' width='600' height="300"></canvas>
+  </div>
+  <div id='tools'>
+    <button id='prev_btn'>上一步</button>
+    <button id='next_btn'>下一步</button>
+    <button id='clear_btn'>清空</button>
+  </div>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/paper.org.cut.min.js"></script>
+  <script src='js/canvas.paint.js'></script>
+  <script>
+    var canvasPaint = $('#canvas').CanvasPaint();
+    $('#prev_btn').on('click',function(){
+      canvasPaint.onPrevClick()
+    })
+    $('#next_btn').on('click',function(){
+      canvasPaint.onNextClick()
+    })
+    $('#clear_btn').on('click',function(){
+      canvasPaint.onClearClick()
+    })
+    </script>
+</body>
+</html>
